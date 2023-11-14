@@ -101,11 +101,11 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
     @Override
     public PageResultDTO<CommentDTO> listComments(CommentVO commentVO) {
-        Integer commentCount = commentMapper.selectCount(new LambdaQueryWrapper<Comment>()
+        Integer commentCount = Math.toIntExact(commentMapper.selectCount(new LambdaQueryWrapper<Comment>()
                 .eq(Objects.nonNull(commentVO.getTopicId()), Comment::getTopicId, commentVO.getTopicId())
                 .eq(Comment::getType, commentVO.getType())
                 .isNull(Comment::getParentId)
-                .eq(Comment::getIsReview, TRUE));
+                .eq(Comment::getIsReview, TRUE)));
         if (commentCount == 0) {
             return new PageResultDTO<>();
         }
