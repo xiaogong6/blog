@@ -1,4 +1,7 @@
 export default {
+  captcha: {
+    TENCENT_CAPTCHA: '2091489673'
+  },
   qqLogin: {
     QQ_APP_ID: '102023726',
     QQ_REDIRECT_URI: 'http://xiaogong.xyz//oauth/login/qq'
