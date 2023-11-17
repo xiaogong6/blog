@@ -138,7 +138,7 @@ public class ArticleController {
 
     @OptLog(optType = EXPORT)
     @ApiOperation(value = "导出文章")
-    @ApiImplicitParam(name = "articleIdList", value = "文章id", required = true, dataType = "List<Integer>")
+    @ApiImplicitParam(name = "articleIds", value = "文章id", required = true, dataType = "List<Integer>")
     @PostMapping("/admin/articles/export")
     public ResultVO<List<String>> exportArticles(@RequestBody List<Integer> articleIds) {
         return ResultVO.ok(articleService.exportArticles(articleIds));
