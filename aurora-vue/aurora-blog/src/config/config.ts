@@ -4,7 +4,7 @@ export default {
   },
   qqLogin: {
     QQ_APP_ID: '102023726',
-    QQ_REDIRECT_URI: 'https://xiaogong.xyz//oauth/login/qq'
+    QQ_REDIRECT_URI: 'https://xiaogong.xyz/oauth/login/qq'
 
   },
   routes: [

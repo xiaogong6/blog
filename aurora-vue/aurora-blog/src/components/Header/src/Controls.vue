@@ -302,11 +302,14 @@ export default defineComponent({
         })
       } else {
         window.open(
-          'https://graph.qq.com/oauth2.0/show?which=Login&display=pc&client_id=' +
-            +config.qqLogin.QQ_APP_ID +
-            '&response_type=token&scope=all&redirect_uri=' +
-            config.qqLogin.QQ_REDIRECT_URI,
-          '_self'
+          // 'https://graph.qq.com/oauth2.0/show?which=Login&display=pc&client_id=' +
+          //   +config.qqLogin.QQ_APP_ID +
+          //   '&response_type=token&scope=all&redirect_uri=' +
+          //   config.qqLogin.QQ_REDIRECT_URI,
+          // '_self'
+            'https://graph.qq.com/oauth2.0/authorize?response_type=code' +
+            '&client_id='+config.qqLogin.QQ_APP_ID+'&redirect_uri=' +config.qqLogin.QQ_REDIRECT_URI+
+            '&state=test','_self'
         )
       }
     }
