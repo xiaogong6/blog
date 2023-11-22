@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: @app.name@
+  profiles:
+    active: dev
   servlet:
     multipart:
       max-file-size: 100MB

@@ -1,14 +1,14 @@
 package com.aurora.config;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.FanoutExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import static com.aurora.constant.RabbitMQConstant.*;
 
+/**
+ * @author xiongke
+ */
 @Configuration
 public class RabbitMQConfig {
 
@@ -19,7 +19,7 @@ public class RabbitMQConfig {
 
     @Bean
     public FanoutExchange maxWellExchange() {
-        return new FanoutExchange(MAXWELL_EXCHANGE, true, false);
+        return ExchangeBuilder.fanoutExchange(MAXWELL_EXCHANGE).build();
     }
 
     @Bean

@@ -2,8 +2,6 @@ ip:
   www.xiaogong.xyz
 
 spring:
-  application:
-    name: @app.name@
   cloud:
     nacos:
       discovery:
