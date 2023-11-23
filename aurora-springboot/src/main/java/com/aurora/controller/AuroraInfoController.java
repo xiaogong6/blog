@@ -1,5 +1,6 @@
 package com.aurora.controller;
 
+import com.aurora.annotation.AccessLimit;
 import com.aurora.annotation.OptLog;
 import com.aurora.model.dto.AboutDTO;
 import com.aurora.model.dto.AuroraAdminInfoDTO;
@@ -42,6 +43,7 @@ public class AuroraInfoController {
 
     @ApiOperation(value = "获取系统信息")
     @GetMapping("/")
+    @AccessLimit(seconds = 1,maxCount = 10)
     public ResultVO<AuroraHomeInfoDTO> getBlogHomeInfo() {
         return ResultVO.ok(auroraInfoService.getAuroraHomeInfo());
     }
