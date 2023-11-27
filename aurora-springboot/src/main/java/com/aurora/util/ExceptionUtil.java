@@ -3,6 +3,9 @@ package com.aurora.util;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+/**
+ * @author xiongke
+ */
 public class ExceptionUtil {
 
     public static String getTrace(Throwable t) {

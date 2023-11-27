@@ -22,6 +22,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
+/**
+ * @author xiongke
+ */
 @Aspect
 @Component
 public class ExceptionLogAspect {
@@ -33,6 +36,11 @@ public class ExceptionLogAspect {
     public void exceptionLogPointcut() {
     }
 
+    /**
+     * 设置ExceptionLog对象属性
+     * @param joinPoint 切入点
+     * @param e 异常
+     */
     @AfterThrowing(value = "exceptionLogPointcut()", throwing = "e")
     public void saveExceptionLog(JoinPoint joinPoint, Exception e) {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();

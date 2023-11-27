@@ -8,17 +8,12 @@
 
 ## 在线地址
 
-- 前台链接：[www.linhaojun.top](https://www.linhaojun.top)
-- 后台链接：[admin.linhaojun.top](https://admin.linhaojun.top)
-- 演示账号：test@163.com，密码：123456
+- 前台链接：[www.xiaogong.xyz](https://xiaogong.xyz/)
+- 后台链接：[admin.xiaogong.xyz](https://admin.xiaogong.xyz)
+- 演示账号：test，密码：123
 
 ## 效果图
-
-### 图片1：
-![图片1](https://s3.bmp.ovh/imgs/2023/06/25/8a6ad38dfb27bb3a.png)
-
-### 图片2：
-![图片2](https://s3.bmp.ovh/imgs/2023/06/25/7036a13dc0a0488a.png)
+详情进主页查看
 
 ## 相关技术
 
@@ -52,10 +47,6 @@
 ## 部署
 
 - 详见项目部署文档
-
-## 交流群
-
-- QQ群：338371628
 
 ## 鸣谢
 
