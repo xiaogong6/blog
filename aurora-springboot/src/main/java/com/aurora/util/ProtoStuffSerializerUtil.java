@@ -6,12 +6,14 @@ package com.aurora.util;
  * @Author: xiongke
  * @Create: 2023-11-22
  */
+
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.Schema;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -20,7 +22,7 @@ import java.util.List;
 /**
  * ProtoStuffSerializerUtil
  *
- * @author YZD
+ * @author xk
  * @date 2022年3月16日14:48:57
  */
 public class ProtoStuffSerializerUtil {

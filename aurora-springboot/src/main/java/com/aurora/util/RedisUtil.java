@@ -7,7 +7,7 @@ package com.aurora.util;
  * @Create: 2023-11-22
  */
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -18,6 +18,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -25,23 +26,17 @@ import java.util.concurrent.TimeUnit;
 /**
  * Redis工具类
  *
- * @author YZD
- * @date 2022年3月16日14:49:32
+ * @author xk
+ * &#064;date  2023年11月23日14:49:32
  */
+@Getter
 @Component
 public class RedisUtil {
-    @Autowired
+
+    @Resource
     private StringRedisTemplate redisTemplate;
 
-    public void setRedisTemplate(StringRedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
-
-    public StringRedisTemplate getRedisTemplate() {
-        return this.redisTemplate;
-    }
-
-    /** -------------------key相关操作--------------------- */
+    /* -------------------key相关操作--------------------- */
 
     /**
      * 删除key
