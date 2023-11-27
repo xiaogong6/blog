@@ -1,7 +1,7 @@
 package com.aurora.handler;
 
-import com.aurora.model.dto.ResourceRoleDTO;
 import com.aurora.mapper.RoleMapper;
+import com.aurora.model.dto.ResourceRoleDTO;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
@@ -15,6 +15,9 @@ import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author xiongke
+ */
 @Component
 public class FilterInvocationSecurityMetadataSourceImpl implements FilterInvocationSecurityMetadataSource {
 

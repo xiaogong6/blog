@@ -1,9 +1,5 @@
 package com.aurora.strategy.impl;
 
-import com.aurora.model.dto.SocialTokenDTO;
-import com.aurora.model.dto.SocialUserInfoDTO;
-import com.aurora.model.dto.UserDetailsDTO;
-import com.aurora.model.dto.UserInfoDTO;
 import com.aurora.entity.UserAuth;
 import com.aurora.entity.UserInfo;
 import com.aurora.entity.UserRole;
@@ -12,8 +8,12 @@ import com.aurora.exception.BizException;
 import com.aurora.mapper.UserAuthMapper;
 import com.aurora.mapper.UserInfoMapper;
 import com.aurora.mapper.UserRoleMapper;
+import com.aurora.model.dto.SocialTokenDTO;
+import com.aurora.model.dto.SocialUserInfoDTO;
+import com.aurora.model.dto.UserDetailsDTO;
+import com.aurora.model.dto.UserInfoDTO;
 import com.aurora.service.TokenService;
-import com.aurora.service.impl.UserDetailServiceImpl;
+import com.aurora.service.UserDetailService;
 import com.aurora.strategy.SocialLoginStrategy;
 import com.aurora.util.BeanCopyUtil;
 import com.aurora.util.IpUtil;
@@ -31,6 +31,9 @@ import java.util.Objects;
 
 import static com.aurora.constant.CommonConstant.TRUE;
 
+/**
+ * @author xiongke
+ */
 @Service
 public abstract class AbstractSocialLoginStrategyImpl implements SocialLoginStrategy {
 
@@ -44,7 +47,7 @@ public abstract class AbstractSocialLoginStrategyImpl implements SocialLoginStra
     private UserRoleMapper userRoleMapper;
 
     @Autowired
-    private UserDetailServiceImpl userDetailService;
+    private UserDetailService userDetailService;
 
     @Autowired
     private TokenService tokenService;

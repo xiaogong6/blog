@@ -12,6 +12,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author xiongke
+ */
 @Component
 public class AccessDecisionManagerImpl implements AccessDecisionManager {
     @Override

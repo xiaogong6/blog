@@ -71,7 +71,7 @@ public class TokenServiceImpl implements TokenService {
     @Override
     public UserDetailsDTO getUserDetailDTO(HttpServletRequest request) {
         String token = Optional.ofNullable(request.getHeader(TOKEN_HEADER)).orElse("").replaceFirst(TOKEN_PREFIX, "");
-        if (StringUtils.hasText(token) && !token.equals("null")) {
+        if (StringUtils.hasText(token) && !"null".equals(token)) {
             Claims claims = parseToken(token);
             String userId = claims.getSubject();
             return (UserDetailsDTO) redisService.hGet(LOGIN_USER, userId);
