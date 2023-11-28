@@ -8,9 +8,11 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
 import static com.aurora.constant.RabbitMQConstant.EMAIL_QUEUE;
 
+/**
+ * @author xiongke
+ */
 @Component
 @RabbitListener(queues = EMAIL_QUEUE)
 public class CommentNoticeConsumer {

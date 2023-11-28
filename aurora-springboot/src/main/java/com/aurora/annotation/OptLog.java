@@ -2,6 +2,9 @@ package com.aurora.annotation;
 
 import java.lang.annotation.*;
 
+/**
+ * @author xiongke
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
