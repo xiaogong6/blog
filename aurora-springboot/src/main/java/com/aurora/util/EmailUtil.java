@@ -1,6 +1,8 @@
 package com.aurora.util;
 
 import com.aurora.model.dto.EmailDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -9,16 +11,22 @@ import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * @author xiongke
+ */
 @Component
 public class EmailUtil {
+
+    private final Logger logger = LoggerFactory.getLogger(EmailUtil.class);
 
     @Value("${spring.mail.username}")
     private String email;
 
-    @Autowired
+    @Resource
     private JavaMailSender javaMailSender;
 
     @Autowired
@@ -37,7 +45,7 @@ public class EmailUtil {
             mimeMessageHelper.setText(process, true);
             javaMailSender.send(mimeMessage);
         } catch (MessagingException e) {
-            e.printStackTrace();
+            logger.error("发送email失败:{}", e.getMessage());
         }
     }
 

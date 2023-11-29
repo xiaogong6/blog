@@ -9,6 +9,7 @@ import com.aurora.service.ArticleService;
 import com.aurora.service.UserInfoService;
 import com.aurora.util.EmailUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,22 +47,28 @@ public class SubscribeConsumer {
         List<UserInfo> users = userInfoService.list(new LambdaQueryWrapper<UserInfo>().eq(UserInfo::getIsSubscribe, TRUE));
         List<String> emails = users.stream().map(UserInfo::getEmail).collect(Collectors.toList());
         for (String email : emails) {
-            EmailDTO emailDTO = new EmailDTO();
-            Map<String, Object> map = new HashMap<>();
-            emailDTO.setEmail(email);
-            emailDTO.setSubject("文章订阅");
-            emailDTO.setTemplate("common.html");
-            String url = websiteUrl + "/articles/" + articleId;
-            if (article.getUpdateTime() == null) {
-                map.put("content", "城北花开的个人博客发布了新的文章，"
-                        + "<a style=\"text-decoration:none;color:#12addb\" href=\"" + url + "\">点击查看</a>");
-            } else {
-                map.put("content", "城北花开的个人博客对《" + article.getArticleTitle() + "》进行了更新，"
-                        + "<a style=\"text-decoration:none;color:#12addb\" href=\"" + url + "\">点击查看</a>");
-            }
-            emailDTO.setCommentMap(map);
+            EmailDTO emailDTO = getEmailDTO(email, articleId, article);
             emailUtil.sendHtmlMail(emailDTO);
         }
+    }
+
+    @NotNull
+    private EmailDTO getEmailDTO(String email, Integer articleId, Article article) {
+        EmailDTO emailDTO = new EmailDTO();
+        Map<String, Object> map = new HashMap<>();
+        emailDTO.setEmail(email);
+        emailDTO.setSubject("文章订阅");
+        emailDTO.setTemplate("common.html");
+        String url = websiteUrl + "/articles/" + articleId;
+        if (article.getUpdateTime() == null) {
+            map.put("content", "城北花开的个人博客发布了新的文章，"
+                    + "<a style=\"text-decoration:none;color:#12addb\" href=\"" + url + "\">点击查看</a>");
+        } else {
+            map.put("content", "城北花开的个人博客对《" + article.getArticleTitle() + "》进行了更新，"
+                    + "<a style=\"text-decoration:none;color:#12addb\" href=\"" + url + "\">点击查看</a>");
+        }
+        emailDTO.setCommentMap(map);
+        return emailDTO;
     }
 
 }

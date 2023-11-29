@@ -1,5 +1,8 @@
 package com.aurora.constant;
 
+/**
+ * @author xiongke
+ */
 public interface RabbitMQConstant {
 
     String MAXWELL_QUEUE = "maxwell_queue";
