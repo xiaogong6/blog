@@ -73,7 +73,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
-  background: url(https://static.linhaojun.top/aurora/photos/765664a8a75211296a9cd89671d6d660.png) center center / cover
+  background: url(https://xiongke-blog-oss.oss-cn-shanghai.aliyuncs.com/aurora/photos/%E5%AD%A4%E7%8B%AC%E6%91%87%E6%BB%9A2png.png) center center / cover
     no-repeat;
 }
 .login-card {
